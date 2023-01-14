@@ -18,7 +18,8 @@ Comment.init(
         validate: {
            len: [5, 120],
            isAlphanumeric: true,
-        }
+        },
+        
     
     },
     sequelize,

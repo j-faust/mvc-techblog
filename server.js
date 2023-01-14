@@ -13,8 +13,9 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
+
 const sess = {
-    secret: '',
+    secret: process.env.DB_SECRET,
     cookie: {
         maxAge: 60 * 60 * 1000,
         httpOnly: true,
