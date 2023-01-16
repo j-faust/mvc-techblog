@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
                 'post_title',
                 'post_content'
             ],
-            include: [User],
+            include: User,
+            attributes: 'username',
         });
         const blogPost = dbBlogData.map((post) => 
             post.get({ plain: true })

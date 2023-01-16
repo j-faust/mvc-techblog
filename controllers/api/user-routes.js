@@ -7,10 +7,10 @@ router.post('/', async (req, res) => {
     try {
         const userDbData = await User.create ({
             username: req.body.username,
-            email: req.body.user_email,
-            password: req.body.user_pw,
+            user_email: req.body.user_email,
+            user_pw: req.body.user_pw,
         });
-
+        // set sessions with logged in value set to true
         req.session.save(() => {
             req.session.loggedIn = true;
 
@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
             where: {
                 email: req.body.user_email,
             },
-        });
+        })
         if(!userDbData) {
             res
               .status(400)
