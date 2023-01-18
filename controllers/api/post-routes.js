@@ -24,10 +24,10 @@ router.get('/', async (req, res) => {
                 ],
                 include: {
                     model: User, 
-                    attributes: 'username',
+                    attributes: ['username'],
                 },
                 model: User,
-                attributes: 'username',
+                attributes: ['username'],
             } 
           ]
         })
@@ -56,11 +56,11 @@ router.get('/:id', async (req, res) => {
             ],
             include: [{
                 model: User,
-                attributes: 'username',
+                attributes: ['username'],
             }],
             include: [{
                 model: User,
-                attributes: 'username',
+                attributes: ['username'],
             }],
         })
         if(!userPostData) {

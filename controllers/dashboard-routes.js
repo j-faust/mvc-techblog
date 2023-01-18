@@ -22,11 +22,11 @@ router.get('/', withAuth, async (req, res) => {
             }],
             include: {
                 model: User,
-                attributes: 'username',
+                attributes: ['username'],
             }
         },{
             model: User,
-            attributes: 'username',
+            attributes: ['username'],
         })
         res.status(200).json(userDashboardData);
     } catch(err) {
@@ -52,11 +52,11 @@ router.get('/edit/:id', withAuth, async (req, res) => {
                 attributes: ['id', 'date_created', 'user_comment', 'user_id', 'post_id'],
                 include: {
                     model: User,
-                    attributes: 'username',
+                    attributes: ['username'],
                 }
             },{
                 model: User,
-                attributes: 'username',
+                attributes: ['username'],
             }]
         })
         if(!editDbPost) {
@@ -94,11 +94,11 @@ router.get('/create', withAuth, (req, res) => {
                 attributes: ['id', 'date_created', 'user_comment', 'user_id', 'post_id'],
                 include: {
                     model: User,
-                    attributes: 'username',
+                    attributes: ['username'],
                 }
             },{
                 model: User,
-                attributes: 'username',
+                attributes: ['username'],
             }]
         })
         if(!editDbPost) {

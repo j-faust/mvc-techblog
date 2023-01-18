@@ -1,0 +1,18 @@
+
+{{> post-card post}}
+
+
+{{#if loggedIn}}
+<form class="commenting-form">
+        <div class="form-group">
+            <textarea class="form-control" id="commentTextArea" name="main-comment-body" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 createPostBtn" id="dbCreate">Create Post</button>
+</form>
+{{/if}}
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="../public/js/comment.js"></script>
+{{/if}}
