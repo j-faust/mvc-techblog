@@ -9,17 +9,14 @@ router.get('/', async (req, res) => {
             attributes: [
                 'id',
                 'post_title',
-                'post_content',
-                'date_created'
+                'post_content'
             ],
-            order: [['date_created', DESC]],
             include: [{
                 model: Comment, 
                 attributes: [
                     'id',
                     'post_id',
                     'user_comment',
-                    'date_created',
                     'user_id',
                 ],
                 include: {
@@ -52,7 +49,6 @@ router.get('/:id', async (req, res) => {
                 'id', 
                 'title',
                 'post_content',
-                'date_created',
             ],
             include: [{
                 model: User,

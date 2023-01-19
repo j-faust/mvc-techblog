@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 // get information for homepage
 router.get('/', async (req, res) => {
@@ -10,16 +10,27 @@ router.get('/', async (req, res) => {
                 'post_title',
                 'post_content'
             ],
-            include: User,
-            attributes: ['username'],
+            include: [
+             {
+            model: Comment,
+            attributes: ['id', 'user_comment', 'post_id', 'user_id'],
+                include: {
+                    model: User,
+                        attributes: ['username'],
+                }
+            }, {
+                model: User,
+                attributes: ['username'],
+            }
+           ]     
         });
-        const blogPost = dbBlogData.map((post) => 
-            post.get({ plain: true })
-        )
-        .then(res.render('homepage', {
-           blogPost,
+        const postData = dbBlogData.map(post => post.get({ plain: true }));
+        
+        res.render('homepage', {
+            postData,
+            username: req.session.username,
             loggedIn: req.session.loggedIn,
-        }));
+        })
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

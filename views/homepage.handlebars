@@ -1,9 +1,11 @@
-
-{{#each posts |post|}}
-
+<ol class="postDatat">
+{{#each postData as |post|}}
+<li>
 {{>post-card post}}
-</div>
-
+</li>
 {{else}}
 <h5>Sorry, no posts here! </h5>
 {{/each}}
+</ol>
+
+<script type="text/template"></script>

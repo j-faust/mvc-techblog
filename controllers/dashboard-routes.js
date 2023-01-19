@@ -12,12 +12,11 @@ router.get('/', withAuth, async (req, res) => {
             attributes: [
                 'id',
                 'title',
-                'date_created',
                 'post_content',
             ],
             include: [{
                 model: Comment,
-                attributes: ['id', 'date_created', 'user_comment', 'user_id', 'post_id'],
+                attributes: ['id', 'user_comment', 'user_id', 'post_id'],
                 
             }],
             include: {
@@ -45,11 +44,10 @@ router.get('/edit/:id', withAuth, async (req, res) => {
                 'id',
                 'title',
                 'post_content',
-                'date_created',
             ],
             include: [{
                 model: Comment,
-                attributes: ['id', 'date_created', 'user_comment', 'user_id', 'post_id'],
+                attributes: ['id', 'user_comment', 'user_id', 'post_id'],
                 include: {
                     model: User,
                     attributes: ['username'],
@@ -81,17 +79,15 @@ router.get('/create', withAuth, (req, res) => {
                 'id',
                 'title',
                 'post_content',
-                'date_created',
             ],
             attributes: [
                 'id',
                 'title',
                 'post_content',
-                'date_created',
             ],
             include: [{
                 model: Comment,
-                attributes: ['id', 'date_created', 'user_comment', 'user_id', 'post_id'],
+                attributes: ['id', 'user_comment', 'user_id', 'post_id'],
                 include: {
                     model: User,
                     attributes: ['username'],

@@ -1,7 +1,7 @@
 // requiring the Post model
 const { Post } = require('../models');
 
-// data to seed for blod posts
+// data to seed for blog posts
 const pData = [
     {
         post_title: 'Updated Employee Vacation Tool Goes Live!',

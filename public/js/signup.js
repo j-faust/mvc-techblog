@@ -10,12 +10,13 @@ const signUpHandler = async (event) => {
 
     if(username && email && password) {
         const resp = await fetch('/api/users', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({ username, email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if(resp.ok) {
+            console.log('Signed Up!');
             document.location.replace('/dashboard');
         } else {
             alert('Error: Could not complete sign up!');
@@ -26,5 +27,5 @@ const signUpHandler = async (event) => {
 
 // event listener for the submit button on the signup form
 document
-    .querySelector('.signupForm')
-    .addEventListener('submit', signUpHandler);
+    .querySelector('.acctSignUp')
+    .addEventListener('submit', signUpHandler);1
